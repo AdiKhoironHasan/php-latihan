@@ -15,7 +15,4 @@ if (!$conn) {
 }
 // echo "Koneksi berhasil";
 
-// menutup koneksi ke database dengan cara manual
-$dataUser = mysqli_query($conn, "SELECT * FROM users");
-
 // mysqli_close($conn);

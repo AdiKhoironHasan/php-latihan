@@ -1,5 +1,5 @@
 <?php
-include 'function.php'
+include 'functions/f_data_user.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,6 +18,10 @@ include 'function.php'
 <body>
     <div class="container">
         <h1>Halaman Data User</h1>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambahData">
+            Tambah Data
+        </button>
         <div class="mt-3">
             <table class="table table-info">
                 <thead>
@@ -36,14 +40,46 @@ include 'function.php'
                             <th scope="row"><?= $no ?></th>
                             <td><?= $user['nama'] ?></td>
                             <td><?= $user['username'] ?></td>
-                            <td><?= $user['password']?></td>
+                            <td><?= $user['password'] ?></td>
                         </tr>
                     <?php
-                    $no++; 
-                    endforeach 
+                        $no++;
+                    endforeach
                     ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data-->
+    <div class="modal fade" id="modalTambahData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="POST">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" name="nama" class="form-control" placeholder="isi dengan nama lengkap anda">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="isi dengan username">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="isi dengan password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" name="tambah" class="btn btn-primary" value="Simpan">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
